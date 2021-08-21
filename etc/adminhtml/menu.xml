@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mgenius_FeaturedProducts::manage" title="FeaturedProducts" translate="title" module="Mgenius_FeaturedProducts" sortOrder="1111" parent="Magento_Backend::content_elements" action="mgeniuftred" resource="Mgenius_FeaturedProducts::manage"/>
+    </menu>
+</config>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">mgeniuftred_item.mgeniuftred_item_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>columns</spinner>
+        <deps>
+            <dep>mgeniuftred_item.mgeniuftred_item_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="mgeniuftred_item_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Mgenius_FeaturedProducts::manage</aclResource>
+        <dataProvider class="Mgenius\FeaturedProducts\Ui\Component\Listing\ItemDataProvider" name="mgeniuftred_item_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>false</sticky>
+        </settings>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="columns">
+        <column name="name" sortOrder="30">
+            <settings>
+                <addField>true</addField>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="sku" sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+                <label translate="true">SKU</label>
+            </settings>
+        </column>
+        <column name="visibility" component="Magento_Ui/js/grid/columns/select" sortOrder="80">
+            <settings>
+                <addField>true</addField>
+                <options class="Magento\Catalog\Model\Product\Visibility"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Visibility</label>
+            </settings>
+        </column>
+        <column name="status" component="Magento_Ui/js/grid/columns/select" sortOrder="90">
+            <settings>
+                <addField>true</addField>
+                <options class="Magento\Catalog\Model\Product\Attribute\Source\Status"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+         <actionsColumn name="actions" class="Mgenius\FeaturedProducts\Ui\Component\Listing\Column\ItemActions" component="Mgenius_FeaturedProducts/js/grid/columns/actions">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

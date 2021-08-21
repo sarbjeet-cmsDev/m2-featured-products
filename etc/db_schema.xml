@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="mgenius_featured" resource="default" engine="innodb" comment="Featured Products"
+    	>  
+        <column xsi:type="int" name="id" unsigned="false" nullable="false" identity="true" comment="ID" />
+
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name" />
+
+        <column xsi:type="mediumtext" name="description" nullable="true" comment="Description" />
+
+        <column xsi:type="varchar" name="url" nullable="true" length="255" comment="View All Link" />
+
+        <column xsi:type="smallint" name="status" unsigned="false" nullable="false" padding="2" default="1" comment="Status" />
+
+        <column xsi:type="varchar" name="identifier" nullable="false" length="255" comment="Identifier" />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="MGENIUS_FEATURED_IDENTIFIER">
+            <column name="identifier"/>
+        </constraint>
+
+        <index referenceId="MGENIUS_FEATURED_NAME" indexType="fulltext">
+            <column name="name"/>
+            <column name="identifier"/>
+        </index>
+
+    </table>    
+
+    <table name="mgenius_featured_item" resource="default" engine="innodb" comment="Featured Items"
+        >  
+        <column xsi:type="int" name="id" unsigned="false" nullable="false" identity="true" comment="ID" />
+
+        <column xsi:type="int" name="featured_id" unsigned="false" nullable="false" comment="Featured ID" />
+
+        <column xsi:type="int" name="product_id" unsigned="false" nullable="false" comment="Product" />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+    </table>
+</schema>

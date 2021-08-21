@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="mgenius_featuredproducts" class="Mgenius\FeaturedProducts\Block\Widget">
+        <label translate="true">Mgenius FeaturedProducts</label>
+        <description translate="true">List Featured Products.</description>
+        <parameters>
+            <parameter name="widget_status" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Enabledisable">
+                <label translate="true">Status</label>
+            </parameter>
+
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+
+            <parameter name="description" xsi:type="text" required="true" visible="true">
+                <label translate="true">Description</label>
+            </parameter>
+
+            <parameter name="identifier" xsi:type="text" required="true" visible="true">
+                <label translate="true">Identifier</label>
+            </parameter>
+
+            <parameter name="layout_type" xsi:type="select" required="true" visible="true">
+                <label translate="true">Layout</label>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="slider" value="slider">
+                        <label translate="true">Slider</label>
+                    </option>
+                </options>
+            </parameter>
+
+        </parameters>
+    </widget>
+</widgets>
